@@ -25,7 +25,7 @@
                 </el-menu-item>
                 <el-menu-item index="3">
                   <i class="el-icon-date"></i>
-                  <span slot="title"><router-link to="/about">DatePicker 日期选择器</router-link></span>
+                  <span slot="title"><router-link to="/server">服务器</router-link></span>
                 </el-menu-item>
                 <el-menu-item index="4">
                   <i class="el-icon-setting"></i>

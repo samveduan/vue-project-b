@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import About from '@/components/about'
+import Server from '@/components/server'
 import Login from '@/components/login'
 import User from '@/components/user'
 import Table from '@/components/table'
@@ -17,9 +17,9 @@ export default new Router({
       name: 'login'
     },
     {
-      path: '/about',
-      component: About,
-      name: 'about'
+      path: '/server',
+      component: Server,
+      name: 'server'
     },
     {
       path: '/user',
