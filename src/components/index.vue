@@ -1,11 +1,12 @@
 <template>
   <div>
-    <el-container>
+    <el-container id="container">
       <el-header id="header">
         <Header/>
       </el-header>
-      <el-container>
-        <el-aside width="210px" style="height: 576px;">
+      <el-container id="container2">
+        <el-aside width="210px">
+              <div style="height: 60px;"></div>
               <el-menu
                 default-active="2"
                 class="el-menu-vertical-demo"
@@ -42,10 +43,11 @@
               </el-menu>
         </el-aside>
 
-        <el-container>
-          <el-main><router-view></router-view></el-main>
-          <el-footer height="30">中央军委办公厅第五十一研究所</el-footer>
-        </el-container>
+          <el-main id="main">
+            <div style="padding-left: 230px; padding-top: 80px;">
+              <router-view></router-view>
+            </div>
+          </el-main>
       </el-container>
     </el-container>
   </div>
@@ -64,6 +66,9 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    mounted: function(){
+
     }
   }
 </script>
@@ -75,27 +80,45 @@
 </style>
 
 <style scoped>
+  #container{
+    height: 100%;
+  }
+  #container2{
+
+  }
+  .el-header{
+    z-index: 100000000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+  }
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
   }
-
-  .el-footer{
-    line-height: 30px;
-    text-align: right;
-    font-size: 12px;
-  }
-
   .el-aside {
-    background-color: #D3DCE6;
+    background-color: #545c64;
     color: #333;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100000;
   }
-
-  .el-main {
+  #main {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
     background-color: #FFFFFF;
     color: #333;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
   }
-
   .el-aside a{
     color:#ffffff;
     text-decoration: none;
@@ -107,4 +130,3 @@
     color:#ffffff;
   }
 </style>
-
