@@ -1,51 +1,81 @@
 <template>
   <div>
-    <el-container>
+    <el-container id="container">
       <el-header id="header">
         <Header/>
       </el-header>
-      <el-container>
-        <el-aside width="210px" style="height: 576px;">
-              <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b">
-
-                <el-menu-item index="1">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title"><router-link to="/">登录</router-link></span>
-                </el-menu-item>
-                <el-menu-item index="2">
-                  <i class="el-icon-tickets"></i>
-                  <span slot="title"><router-link to="/user">用户</router-link></span>
-                </el-menu-item>
-                <el-menu-item index="3">
-                  <i class="el-icon-date"></i>
-                  <span slot="title"><router-link to="/server">服务器</router-link></span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title"><router-link to="/table">Table 表格</router-link></span>
-                </el-menu-item>
-                <el-menu-item index="5">
-                  <i class="el-icon-loading"></i>
-                  <span slot="title"><router-link to="/progress">Progress 进度条</router-link></span>
-                </el-menu-item>
-                <el-menu-item index="6">
-                  <i class="el-icon-arrow-right"></i>
-                  <span slot="title"><router-link to="/transfer">Transfer 穿梭框</router-link></span>
-                </el-menu-item>
-              </el-menu>
+      <el-container id="container2">
+        <el-aside width="210px" style="overflow:hidden;">
+          <div style="height: 60px;"></div>
+          <el-menu
+            default-active="2"
+            class="el-menu-vertical-demo"
+            style="width: 210px;"
+            @open="handleOpen"
+            @close="handleClose"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b">
+            <el-menu-item index="1">
+              <i class="el-icon-menu"></i>
+              <span slot="title"><router-link to="/">登录</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="2">
+              <i class="el-icon-tickets"></i>
+              <span slot="title"><router-link to="/user">用户</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="3">
+              <i class="el-icon-date"></i>
+              <span slot="title"><router-link to="/server">服务器</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="4">
+              <i class="el-icon-setting"></i>
+              <span slot="title"><router-link to="/table">Table 表格</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="5">
+              <i class="el-icon-loading"></i>
+              <span slot="title"><router-link to="/progress">Progress 进度条</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="6">
+              <i class="el-icon-tickets"></i>
+              <span slot="title"><router-link to="/form">表单</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="7">
+              <i class="el-icon-sort"></i>
+              <span slot="title"><router-link to="/transfer">Transfer</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="8">
+              <i class="el-icon-d-caret"></i>
+              <span slot="title"><router-link to="/button">Button</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="9">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/tabs">Tabs</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="10">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/carousel">Carousel</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="11">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/charts">Echarts</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="12">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/pagination">Pagination</router-link></span>
+            </el-menu-item>
+            <el-menu-item index="13">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/upload">Upload</router-link></span>
+            </el-menu-item>
+          </el-menu>
         </el-aside>
 
-        <el-container>
-          <el-main><router-view></router-view></el-main>
-          <el-footer height="30">中央军委办公厅第五十一研究所</el-footer>
-        </el-container>
+        <el-main id="main">
+          <div id="mainIn">
+            <router-view></router-view>
+          </div>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -64,38 +94,63 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    mounted: function(){
     }
   }
 </script>
 
 <style>
-.margin-bottom-20{
-  margin-bottom: 20px;
-}
+  .margin-bottom-20{
+    margin-bottom: 20px;
+  }
 </style>
 
 <style scoped>
+  #container{
+    height: 100%;
+  }
+  #container2{
+  }
+  .el-header{
+    z-index: 100000000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+  }
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
   }
-
-  .el-footer{
-    line-height: 30px;
-    text-align: right;
-    font-size: 12px;
-  }
-
   .el-aside {
-    background-color: #D3DCE6;
+    background-color: #545c64;
     color: #333;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100000;
   }
-
-  .el-main {
+  #main {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
     background-color: #FFFFFF;
     color: #333;
+    height: 100%;
+    width: 100%;
   }
-
+  #mainIn{
+    padding: 0 20px 30px 230px;
+    border-top: 80px solid #ffffff;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+  }
   .el-aside a{
     color:#ffffff;
     text-decoration: none;
@@ -107,4 +162,3 @@
     color:#ffffff;
   }
 </style>
-

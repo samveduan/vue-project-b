@@ -98,10 +98,9 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
-            this.$router.replace('/about');
+            this.$router.replace('/form');
           } else {
             console.log('error submit!!');
-            this.$router.replace('/contact');
             return false;
           }
         });

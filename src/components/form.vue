@@ -1,58 +1,47 @@
 <template>
-  <el-row type="flex" justify="center">
-    <el-form ref="loginForm" :model="user" :rules="rules" status-icon label-width="80px">
-      <el-form-item label="用户名" prop="name">
-        <el-input v-model="user.name"></el-input>
+  <div>
+    <el-form :model="numberValidateForm" :rules="rules" ref="numberValidateForm" label-width="80px" size="mini ">
+      <el-form-item label="年龄" prop="age">
+        <el-input type="age" v-model.number="numberValidateForm.age"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="pass">
-        <el-input v-model="user.pass" type="password"></el-input>
-      </el-form-item>
+
       <el-form-item>
-        <el-button type="primary" icon="el-icon-upload" @click="login">登录</el-button>
+        <el-button type="primary" @click="submitForm('numberValidateForm')">提 交</el-button>
+        <el-button @click="resetForm('numberValidateForm')">取 消</el-button>
       </el-form-item>
     </el-form>
-  </el-row>
+  </div>
 </template>
 
 <script>
-  export default {
-    methods: {
-      login () {
-        this.$refs.loginForm.validate((valid) => {
-          if (valid) {
-            if (this.user.name === 'admin' && this.user.pass === '123') {
-              this.$notify({
-                type: 'success',
-                message: '欢迎你,' + this.user.name + '!',
-                duration: 3000
-              })
-              this.$router.replace('/')
-            } else {
-              this.$message({
-                type: 'error',
-                message: '用户名或密码错误',
-                showClose: true
-              })
-            }
-          }
-          else {
-            return false
-          }
-        })
-      }
-    },
-    data () {
-      return {
-        user: {},
-        rules: {
-          name: [
-            {required: true, message: '用户名不能为空', trigger: 'blur'}
-          ],
-          pass: [
-            {required: true, message: '密码不能为空', trigger: 'blur'}
-          ]
-        }
+export default {
+  data(){
+    return {
+      numberValidateForm: {
+        age: ''
+      },
+      rules: {
+        age: [
+          { required: true, message: '年龄不能为空'},
+          { type: 'number', message: '年龄必须为数字值'}
+        ]
       }
     }
+  },
+  methods: {
+    submitForm(formName){
+      this.$refs[formName].validate((valid) => {
+        if(valid){
+          alert('submit');
+        }else{
+          console.log('error submit!!');
+          return false;
+        }
+      })
+    },
+    resetForm(formName){
+      this.$refs[formName].resetFields();
+    }
   }
+}
 </script>
