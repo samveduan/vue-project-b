@@ -98,7 +98,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
-            this.$router.replace('/form');
+            this.$router.push('/index/user');
           } else {
             console.log('error submit!!');
             return false;

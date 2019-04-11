@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Server from '@/components/server'
+import Index from '@/components/index'
 import Login from '@/components/login'
 import User from '@/components/user'
 import Table from '@/components/table'
@@ -31,80 +32,87 @@ export default new Router({
       name: 'login'
     },
     {
-      path: '/server',
-      component: Server,
-      name: 'server'
-    },
-    {
-      path: '/user',
-      component: User,
-      name: 'user'
-    },
-    {
-      path: '/table',
-      component: Table,
-      name: 'table'
-    },
-    {
-      path: '/progress',
-      component: Progress,
-      name: 'progress'
-    },
-    {
-      path: '/dynamic',
-      component: DynamicValidator,
-      name: 'dynamic'
-    },
-    {
-      path: '/transfer',
-      component: Transfer,
-      name: 'transfer'
-    },
-    {
-      path: '/form',
-      component: Form,
-      name: 'form'
-    },
-    {
-      path: '/button',
-      component: Button,
-      name: 'button',
-      children:[
+      path: '/index',
+      component: Index,
+      name: 'index',
+      children: [
         {
-          path: 'plain',
-          component: Plain,
-          name: 'plain'
-        },{
-          path: 'round',
-          component: Round,
-          name: 'round'
+          path: 'server',
+          component: Server,
+          name: 'server'
+        },
+        {
+          path: 'user',
+          component: User,
+          name: 'user'
+        },
+        {
+          path: 'table',
+          component: Table,
+          name: 'table'
+        },
+        {
+          path: 'progress',
+          component: Progress,
+          name: 'progress'
+        },
+        {
+          path: 'dynamic',
+          component: DynamicValidator,
+          name: 'dynamic'
+        },
+        {
+          path: 'transfer',
+          component: Transfer,
+          name: 'transfer'
+        },
+        {
+          path: 'form',
+          component: Form,
+          name: 'form'
+        },
+        {
+          path: 'button',
+          component: Button,
+          name: 'button',
+          children:[
+            {
+              path: 'plain',
+              component: Plain,
+              name: 'plain'
+            },{
+              path: 'round',
+              component: Round,
+              name: 'round'
+            }
+          ]
+        },
+        {
+          path: 'tabs',
+          component: Tabs,
+          name: 'tabs'
+        },
+        {
+          path: 'carousel',
+          component: Carousel,
+          name: 'carousel'
+        },
+        {
+          path: 'charts',
+          component: Charts,
+          name: 'charts'
+        },
+        {
+          path: 'pagination',
+          component: Pagination,
+          name: 'pagination'
+        },
+        {
+          path: 'upload',
+          component: Upload,
+          name: 'upload'
         }
       ]
-    },
-    {
-      path: '/tabs',
-      component: Tabs,
-      name: 'tabs'
-    },
-    {
-      path: '/carousel',
-      component: Carousel,
-      name: 'carousel'
-    },
-    {
-      path: '/charts',
-      component: Charts,
-      name: 'charts'
-    },
-    {
-      path: '/pagination',
-      component: Pagination,
-      name: 'pagination'
-    },
-    {
-      path: '/upload',
-      component: Upload,
-      name: 'upload'
     }
   ]
 })

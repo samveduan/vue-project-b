@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Index/>
+    <router-view/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import Index from './components/index'
 export default {
   name: 'App',
   components: {
-    Index
+
   }
 }
 </script>
