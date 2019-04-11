@@ -14,6 +14,8 @@ import Carousel from '@/components/carousel'
 import Charts from '@/components/echarts'
 import Pagination from '@/components/pagination'
 import Upload from '@/components/upload'
+import Plain from '@/components/plain'
+import Round from '@/components/round'
 
 Vue.use(Router)
 
@@ -21,6 +23,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
       component: Login,
       name: 'login'
     },
@@ -62,7 +68,18 @@ export default new Router({
     {
       path: '/button',
       component: Button,
-      name: 'button'
+      name: 'button',
+      children:[
+        {
+          path: 'plain',
+          component: Plain,
+          name: 'plain'
+        },{
+          path: 'round',
+          component: Round,
+          name: 'round'
+        }
+      ]
     },
     {
       path: '/tabs',

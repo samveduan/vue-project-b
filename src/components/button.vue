@@ -16,6 +16,14 @@
         <el-dropdown-item>沈阳</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+
+    <ul>
+      <router-link to="/button/plain" tag="li">朴素按钮</router-link>
+      <router-link :to="{name: 'round'}" tag="li">圆形按钮</router-link>
+    </ul>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -28,6 +36,9 @@
   }
   .el-icon-arrow-down {
     font-size: 12px;
+  }
+  ul li{
+    cursor: pointer;
   }
 </style>
 
