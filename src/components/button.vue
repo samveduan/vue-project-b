@@ -18,7 +18,7 @@
     </el-dropdown>
 
     <ul>
-      <router-link to="/button/plain" tag="li">朴素按钮</router-link>
+      <router-link to="/index/button/plain" tag="li">朴素按钮</router-link>
       <router-link :to="{name: 'round'}" tag="li">圆形按钮</router-link>
     </ul>
     <div>

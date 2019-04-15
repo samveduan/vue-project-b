@@ -66,7 +66,7 @@
             </el-menu-item>
             <el-menu-item index="13">
               <i class="el-icon-star-off"></i>
-              <span slot="title"><router-link to="/index/upload">Upload</router-link></span>
+              <span slot="title"><router-link to="/index/vuex">Vuex</router-link></span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -96,6 +96,7 @@
       }
     },
     mounted: function(){
+
     }
   }
 </script>

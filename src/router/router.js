@@ -14,7 +14,7 @@ import Tabs from '@/components/tabs'
 import Carousel from '@/components/carousel'
 import Charts from '@/components/echarts'
 import Pagination from '@/components/pagination'
-import Upload from '@/components/upload'
+import VuexMoudleTest from '@/components/VuexMoudleTest'
 import Plain from '@/components/plain'
 import Round from '@/components/round'
 
@@ -108,9 +108,9 @@ export default new Router({
           name: 'pagination'
         },
         {
-          path: 'upload',
-          component: Upload,
-          name: 'upload'
+          path: 'vuex',
+          component: VuexMoudleTest,
+          name: 'Vuex'
         }
       ]
     }
