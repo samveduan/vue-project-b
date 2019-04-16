@@ -1,11 +1,13 @@
 <template>
   <div>
-      <p>name: {{name}}</p>
+    <p>name: {{name}}</p>
+    <p>copyright: {{copyright}}</p>
+    <p>arrList: {{arrList}}</p>
   </div>
 </template>
 
 <script>
-import {mapState, mapGetters, mapActions} from 'Vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
 export default {
   data(){
     return {
@@ -14,8 +16,13 @@ export default {
   },
   computed: {
     ...mapState({
-      name: state => state.collection.name
-    })
+      name: state => state.collection.name,
+      copyright: state => state.footerStatus.copyright
+    },
+      ...mapGetters('collection', {
+        arrList: 'renderCollects'
+      })
+    )
   }
 }
 </script>

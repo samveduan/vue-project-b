@@ -1,19 +1,26 @@
 //collection.js
 
-const state = {
-  name: 'collection'
+const state={
+  collects:['hi'],  //初始化一个colects数组
+  field: '空天作战任务规划'
 };
 
-const getters = {
-
+const getters={
+  renderCollects(state){ //承载变化的collects
+    return state.collects;
+  }
 };
 
-const mutations = {
-
+const mutations={
+  pushCollects(state,items){ //如何变化collects,插入items
+    state.collects.push(items)
+  }
 };
 
-const actions = {
-
+const actions={
+  invokePushItems(context,item){ //触发mutations里面的pushCollects ,传入数据形参item 对应到items
+    context.commit('pushCollects',item);
+  }
 };
 
 export default {

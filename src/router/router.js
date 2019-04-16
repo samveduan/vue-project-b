@@ -14,13 +14,14 @@ import Tabs from '@/components/tabs'
 import Carousel from '@/components/carousel'
 import Charts from '@/components/echarts'
 import Pagination from '@/components/pagination'
-import VuexMoudleTest from '@/components/VuexMoudleTest'
+import Vuex from '@/components/Vuex'
 import Plain from '@/components/plain'
 import Round from '@/components/round'
+import Error from '@/components/error'
 
 Vue.use(Router)
 
-export default new Router({
+const routes = new Router({
   routes: [
     {
       path: '/',
@@ -109,10 +110,25 @@ export default new Router({
         },
         {
           path: 'vuex',
-          component: VuexMoudleTest,
+          component: Vuex,
           name: 'Vuex'
         }
       ]
+    },
+    {
+      path: '*',
+      component: Error,
+      name: 'error'
     }
   ]
 })
+
+routes.beforeEach((to, from, next) => {
+  if(localStorage.getItem('username') === null && to.path != '/login'){
+    next('/login');
+  }else{
+    next();
+  }
+})
+
+export default routes

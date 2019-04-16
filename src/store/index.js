@@ -1,5 +1,5 @@
-import Vue from '_vue@2.6.10@vue/types'
-import Vuex from '_vuex@3.1.0@vuex/types'
+import Vue from 'vue'
+import Vuex from 'vuex'
 import collection from './modules/collection'
 import footerStatus from './modules/footerStatus'
 
