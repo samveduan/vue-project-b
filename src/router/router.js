@@ -18,6 +18,7 @@ import Vuex from '@/components/Vuex'
 import Plain from '@/components/plain'
 import Round from '@/components/round'
 import Error from '@/components/error'
+import Product from '@/components/product'
 
 Vue.use(Router)
 
@@ -104,9 +105,9 @@ const routes = new Router({
           name: 'charts'
         },
         {
-          path: 'pagination',
-          component: Pagination,
-          name: 'pagination'
+          path: 'product',
+          component: Product,
+          name: 'product'
         },
         {
           path: 'vuex',
@@ -123,12 +124,12 @@ const routes = new Router({
   ]
 })
 
-routes.beforeEach((to, from, next) => {
+/*routes.beforeEach((to, from, next) => {
   if(localStorage.getItem('username') === null && to.path != '/login'){
     next('/login');
   }else{
     next();
   }
-})
+})*/
 
 export default routes

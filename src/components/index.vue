@@ -62,7 +62,7 @@
             </el-menu-item>
             <el-menu-item index="12">
               <i class="el-icon-star-off"></i>
-              <span slot="title"><router-link to="/index/pagination">Pagination</router-link></span>
+              <span slot="title"><router-link to="/index/product">Product</router-link></span>
             </el-menu-item>
             <el-menu-item index="13">
               <i class="el-icon-star-off"></i>
