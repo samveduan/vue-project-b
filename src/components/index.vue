@@ -1,10 +1,10 @@
 <template>
-  <div>
     <el-container id="container">
-      <el-header id="header">
+      <el-header>
         <Header/>
       </el-header>
-      <el-container id="container2">
+
+      <el-container>
         <el-aside width="210px" style="overflow:hidden;">
           <div style="height: 60px;"></div>
           <el-menu
@@ -50,7 +50,6 @@
         </el-main>
       </el-container>
     </el-container>
-  </div>
 </template>
 
 <script>
@@ -83,8 +82,6 @@
   #container{
     height: 100%;
   }
-  #container2{
-  }
   .el-header{
     z-index: 100000000000;
     position: absolute;
@@ -92,19 +89,8 @@
     left: 0;
     width: 100%;
     height: 60px;
-  }
-  .el-header, .el-footer {
-    background-color: #B3C0D1;
+    background-color: #20a0ff;
     color: #333;
-  }
-  .el-aside {
-    background-color: #545c64;
-    color: #333;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 100000;
   }
   #main {
     position: absolute;
@@ -123,6 +109,15 @@
     height: 100%;
     box-sizing: border-box;
     overflow: auto;
+  }
+  .el-aside {
+    background-color: #545c64;
+    color: #333;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100000;
   }
   .el-aside a{
     color:#ffffff;
