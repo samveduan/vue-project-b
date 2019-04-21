@@ -36,10 +36,6 @@
               <i class="el-icon-star-off"></i>
               <span slot="title"><router-link to="/index/charts">Echarts</router-link></span>
             </el-menu-item>
-            <el-menu-item index="12">
-              <i class="el-icon-star-off"></i>
-              <span slot="title"><router-link to="/index/pagination">Pagination</router-link></span>
-            </el-menu-item>
             <el-menu-item index="13">
               <i class="el-icon-star-off"></i>
               <span slot="title"><router-link to="/index/vuex">Vuex</router-link></span>
