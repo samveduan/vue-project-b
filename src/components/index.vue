@@ -28,10 +28,6 @@
               <i class="el-icon-setting"></i>
               <span slot="title"><router-link to="/index/table">Table 表格</router-link></span>
             </el-menu-item>
-            <el-menu-item index="7">
-              <i class="el-icon-sort"></i>
-              <span slot="title"><router-link to="/index/transfer">Transfer</router-link></span>
-            </el-menu-item>
             <el-menu-item index="9">
               <i class="el-icon-star-off"></i>
               <span slot="title"><router-link to="/index/tabs">Tabs</router-link></span>
