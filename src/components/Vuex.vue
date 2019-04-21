@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="box">
     <p>name: {{name}}</p>
     <p>school: {{school}}</p>
     <p>address: {{address}}</p>
@@ -43,6 +43,12 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.demo{
+  font: {
+    family: fantasy;
+    size: 30px;
+    weight: bold;
+  }
+}
 </style>

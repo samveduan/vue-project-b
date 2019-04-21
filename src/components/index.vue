@@ -16,10 +16,6 @@
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b">
-            <el-menu-item index="1">
-              <i class="el-icon-menu"></i>
-              <span slot="title"><router-link to="/">登录</router-link></span>
-            </el-menu-item>
             <el-menu-item index="2">
               <i class="el-icon-tickets"></i>
               <span slot="title"><router-link to="/index/user">用户</router-link></span>
@@ -32,29 +28,13 @@
               <i class="el-icon-setting"></i>
               <span slot="title"><router-link to="/index/table">Table 表格</router-link></span>
             </el-menu-item>
-            <el-menu-item index="5">
-              <i class="el-icon-loading"></i>
-              <span slot="title"><router-link to="/index/progress">Progress 进度条</router-link></span>
-            </el-menu-item>
-            <el-menu-item index="6">
-              <i class="el-icon-tickets"></i>
-              <span slot="title"><router-link to="/index/form">表单</router-link></span>
-            </el-menu-item>
             <el-menu-item index="7">
               <i class="el-icon-sort"></i>
               <span slot="title"><router-link to="/index/transfer">Transfer</router-link></span>
             </el-menu-item>
-            <el-menu-item index="8">
-              <i class="el-icon-d-caret"></i>
-              <span slot="title"><router-link to="/index/button">Button</router-link></span>
-            </el-menu-item>
             <el-menu-item index="9">
               <i class="el-icon-star-off"></i>
               <span slot="title"><router-link to="/index/tabs">Tabs</router-link></span>
-            </el-menu-item>
-            <el-menu-item index="10">
-              <i class="el-icon-star-off"></i>
-              <span slot="title"><router-link to="/index/carousel">Carousel</router-link></span>
             </el-menu-item>
             <el-menu-item index="11">
               <i class="el-icon-star-off"></i>
@@ -62,7 +42,7 @@
             </el-menu-item>
             <el-menu-item index="12">
               <i class="el-icon-star-off"></i>
-              <span slot="title"><router-link to="/index/product">Product</router-link></span>
+              <span slot="title"><router-link to="/index/pagination">Pagination</router-link></span>
             </el-menu-item>
             <el-menu-item index="13">
               <i class="el-icon-star-off"></i>

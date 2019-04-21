@@ -2,7 +2,6 @@
 
 const state={   //要设置的全局访问的state对象
   name: 'beautiful',
-  company: '微软',
   address: 'Hunan Changsha',
   school: '国防科大',
   showFooter: true,

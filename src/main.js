@@ -6,12 +6,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router/router.js'
 import store from './store'
-import echarts from 'echarts'
+import charts from 'echarts'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.use(echarts)
-Vue.prototype.$echarts = echarts
+Vue.use(charts)
+Vue.prototype.$echarts = charts
 
 /* eslint-disable no-new */
 new Vue({
