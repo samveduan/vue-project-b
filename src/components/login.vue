@@ -5,11 +5,10 @@
 </template>
 
 <script>
-  import ComplexForm from './ComplexForm'
   export default {
     name: 'App',
     components: {
-      ComplexForm
+
     }
   }
 </script>

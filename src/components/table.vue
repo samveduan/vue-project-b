@@ -5,11 +5,50 @@
       <el-breadcrumb-item>Table 表格</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <el-table :data="tableData" border style="">
-      <el-table-column prop="date" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="名称" width="180"></el-table-column>
-      <el-table-column prop="address" label="地址"></el-table-column>
+    <div style="padding-bottom: 20px;">
+      <el-button @click="dialogFormVisible = true">添加</el-button>
+    </div>
+
+    <el-dialog title="添加节点" :visible.sync="dialogFormVisible">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
+        <el-form-item label="名称" :label-width="formLabelWidth" prop="name">
+          <el-input v-model="ruleForm.name" autocomplete="off"></el-input>
+        </el-form-item>
+
+        <el-form-item label="IP" :label-width="formLabelWidth" prop="ip">
+          <el-input v-model="ruleForm.ip" autocomplete="off"></el-input>
+        </el-form-item>
+
+        <el-form-item label="所属单位" :label-width="formLabelWidth" prop="company">
+          <el-input v-model="ruleForm.company" autocomplete="off"></el-input>
+        </el-form-item>
+
+        <el-form-item label="研制单位" :label-width="formLabelWidth" prop="developer">
+          <el-input v-model="ruleForm.developer" autocomplete="off"></el-input>
+        </el-form-item>
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="resetForm('ruleForm'); dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm');">确 定</el-button>
+      </div>
+    </el-dialog>
+
+    <el-table :data="tableData" border style="width: 100%">
+        <el-table-column type="selection" width="55"></el-table-column>
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="名称" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
+
+    <div style="padding-top: 20px;">
+      <el-pagination
+        :page-size="20"
+        :pager-count="11"
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -17,91 +56,59 @@
   export default {
     data() {
       return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
+        tableData: [],
+        dialogFormVisible: false,
+        ruleForm: {
+          name: '',
+          ip: '',
+          company: '',
+          developer: ''
         },
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
+        rules: {
+          name: [
+            { required: true, message: '请输入名称', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          ip: [
+            { required: true, message: '请输入ip', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          company: [
+            { required: true, message: '请输入所属单位', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          developer: [
+            { required: true, message: '请输入研制单位', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ]
         },
-         {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        },
-        {
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-       },{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          },{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }]
+        formLabelWidth: '100px'
       }
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    },
+    mounted(){
+      let _this = this;
+      this.$HTTP.get("get_table_data")
+        .then(function(res){
+          _this.tableData = res.data;
+        })
+        .catch(function(err){
+            console.log(err);
+        })
     }
   }
 </script>

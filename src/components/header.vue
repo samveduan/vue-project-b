@@ -6,13 +6,13 @@
     </el-col>
     <el-col :span="3" :offset="1" class="userinfo">
       <el-dropdown>
-          <span class="el-dropdown-link userinfo-inner">
-            <img src="../assets/user.png" />用户一
-          </span>
+        <span class="el-dropdown-link userinfo-inner">
+             <img src="../assets/user.png" />张某某
+        </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>我的消息</el-dropdown-item>
-          <el-dropdown-item>设置</el-dropdown-item>
-          <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+            <el-dropdown-item>我的消息</el-dropdown-item>
+            <el-dropdown-item>设置</el-dropdown-item>
+            <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </el-col>

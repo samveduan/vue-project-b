@@ -39,6 +39,9 @@
       changeSchool(){
         this.$store.dispatch("footerStatus/_changeSchool", '北大');
       }
+    },
+    mounted(){
+      //console.log(this.$router);
     }
   }
 </script>
