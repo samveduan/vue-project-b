@@ -9,7 +9,7 @@
       <el-button @click="dialogFormVisible = true">添加</el-button>
     </div>
 
-    <el-dialog title="添加节点" :visible.sync="dialogFormVisible">
+    <el-dialog title="添加节点" :visible.sync="dialogFormVisible" @close='closeDialog'>
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
         <el-form-item label="名称" :label-width="formLabelWidth" prop="name">
           <el-input v-model="ruleForm.name" autocomplete="off"></el-input>
@@ -89,7 +89,15 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            const h = this.$createElement;
+
+            this.$notify({
+              title: '提交成功',
+              message: h('i', { style: 'color: teal'}, '提交成功！')
+            });
+
+            this.dialogFormVisible = false;
+
           } else {
             console.log('error submit!!');
             return false;
@@ -98,6 +106,10 @@
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
+      },
+      closeDialog () {
+          this.$refs.ruleForm.clearValidate();
+          this.$refs.ruleForm.resetFields();
       }
     },
     mounted(){
