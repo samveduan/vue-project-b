@@ -14,42 +14,66 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/index'
+      redirect: '/index',
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/login',
       component: Login,
-      name: 'login'
+      name: 'login',
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/index',
       component: Index,
       name: 'index',
+      meta: {
+        requireAuth: true
+      },
       children: [
         {
           path: 'table',
           component: Table,
-          name: 'table'
+          name: 'table',
+          meta: {
+            requireAuth: true
+          }
         },
         {
           path: 'tabs',
           component: Tabs,
-          name: 'tabs'
+          name: 'tabs',
+          meta: {
+            requireAuth: true
+          }
         },
         {
           path: 'charts',
           component: Charts,
-          name: 'charts'
+          name: 'charts',
+          meta: {
+            requireAuth: true
+          }
         },
         {
           path: 'vuex',
           component: Vuex,
-          name: 'Vuex'
+          name: 'Vuex',
+          meta: {
+            requireAuth: true
+          }
         },
         {
           path: 'element',
           component: Element,
-          name: 'Element'
+          name: 'Element',
+          meta: {
+            requireAuth: true
+          }
         }
       ]
     },
@@ -59,10 +83,22 @@ const router = new Router({
       name: 'error'
     }
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
-  next();
-})
+  if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
+    if (sessionStorage.getItem('loginstatus')) { // 判断本地是否存在access_token
+      next()
+    } else {
+      // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
+      next({
+        path: '/login',
+        query:{referrer: to.fullPath}
+      })
+    }
+  } else {
+    next()
+  }
+});
 
 export default router

@@ -7,6 +7,8 @@
 
     <div style="padding-bottom: 20px;">
       <el-button @click="dialogFormVisible = true">添加</el-button>
+
+      <el-button @click="dialogFormVisible2 = true">编辑</el-button>
     </div>
 
     <el-dialog title="添加节点" :visible.sync="dialogFormVisible" @close='closeDialog'>
@@ -34,6 +36,17 @@
       </div>
     </el-dialog>
 
+    <el-dialog title="添加节点" :visible.sync="dialogFormVisible2" @close=''>
+      <el-form ref="ruleForm2">
+
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button>取 消</el-button>
+        <el-button type="primary">确 定</el-button>
+      </div>
+    </el-dialog>
+
     <el-table :data="tableData" border style="width: 100%">
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
@@ -58,6 +71,7 @@
       return {
         tableData: [],
         dialogFormVisible: false,
+        dialogFormVisible2: false,
         ruleForm: {
           name: '',
           ip: '',
