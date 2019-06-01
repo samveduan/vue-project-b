@@ -20,10 +20,17 @@
 </template>
 
 <script>
+  import store from '../store'
   export default {
     data() {
       return {
         input: ''
+      }
+    },
+    methods: {
+      logout(){
+        sessionStorage.setItem("token", 'false');
+        this.$router.push("/login");
       }
     }
   }

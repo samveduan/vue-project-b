@@ -7,6 +7,7 @@ import Tabs from '@/components/tabs'
 import Charts from '@/components/echarts'
 import Vuex from '@/components/Vuex'
 import Element from '@/components/Element'
+import Error from '@/components/Error'
 
 Vue.use(Router);
 
@@ -22,10 +23,7 @@ const router = new Router({
     {
       path: '/login',
       component: Login,
-      name: 'login',
-      meta: {
-        requireAuth: true
-      }
+      name: 'login'
     },
     {
       path: '/index',
@@ -85,20 +83,23 @@ const router = new Router({
   ]
 });
 
+export default router
+
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
-    if (sessionStorage.getItem('loginstatus')) { // 判断本地是否存在access_token
+    if (sessionStorage.getItem("token") == 'true') { // 判断本地是否存在token
       next()
     } else {
-      // 未登录,跳转到登陆页面，并且带上 将要去的地址，方便登陆后跳转。
+      // 未登录,跳转到登陆页面
       next({
-        path: '/login',
-        query:{referrer: to.fullPath}
+        path: '/login'
       })
     }
   } else {
-    next()
+    if(sessionStorage.getItem("token") == 'true'){
+      next('/index/table');
+    }else{
+      next();
+    }
   }
 });
-
-export default router

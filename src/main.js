@@ -4,9 +4,9 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
+import store from './store'
 import router from './router/router.js'
 import HTTP from './axios/http'
-import store from './store'
 import charts from 'echarts'
 
 Vue.config.productionTip = false
@@ -18,8 +18,11 @@ Vue.prototype.$HTTP = HTTP
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
+  router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  mounted(){
+    console.log(this.$router);
+  }
 });

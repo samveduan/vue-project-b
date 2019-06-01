@@ -19,10 +19,8 @@
 </template>
 
 <script>
-  import store from '../vuex/store'
   export default {
     name: 'Login',
-    store,
     components: {
 
     },
@@ -83,11 +81,11 @@
     },
     methods: {
       submitForm(formName) {
+        let _this = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            let loginstatus = true
-            this.$store.commit('setRouting', loginstatus)
-            this.$router.push("/index/table");
+            sessionStorage.setItem("token", 'true');
+            _this.$router.push({path: "/index/table"});
           } else {
             console.log('error submit!!');
             return false;

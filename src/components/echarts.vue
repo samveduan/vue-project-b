@@ -37,7 +37,7 @@
                 series: [{
                   name: '销量',
                   type: 'bar',
-                  data: res.data.line_data
+                  data: res.data.series_data
                 }]
               });
           })
