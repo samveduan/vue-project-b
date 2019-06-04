@@ -7,6 +7,7 @@ import Tabs from '@/components/tabs'
 import Charts from '@/components/echarts'
 import Vuex from '@/components/Vuex'
 import Element from '@/components/Element'
+import BootstrapTable from '@/components/BootstrapTable'
 import Error from '@/components/Error'
 
 Vue.use(Router);
@@ -69,6 +70,14 @@ const router = new Router({
           path: 'element',
           component: Element,
           name: 'Element',
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: 'bootstrap-table',
+          component: BootstrapTable,
+          name: 'BootstrapTable',
           meta: {
             requireAuth: true
           }

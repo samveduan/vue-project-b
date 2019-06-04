@@ -36,6 +36,10 @@
               <i class="el-icon-star-off"></i>
               <span slot="title"><router-link to="/index/element">Element</router-link></span>
             </el-menu-item>
+            <el-menu-item index="15">
+              <i class="el-icon-star-off"></i>
+              <span slot="title"><router-link to="/index/bootstrap-table">BootstrapTable</router-link></span>
+            </el-menu-item>
           </el-menu>
         </el-aside>
 

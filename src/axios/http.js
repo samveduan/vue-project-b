@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let HTTP = axios.create({
-  baseURL:'http://127.0.0.1:8000/',
+  baseURL:'http://127.0.0.1:8001/',
   timeout:1000, //单位是ms，请求超过这个时间就取消，即请求超时
   responseType:'json', //后端返回的数据类型
   header:{  //自定义请求头
